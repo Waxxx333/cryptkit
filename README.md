@@ -7,7 +7,7 @@
 
 
 
-# ***★CryptKit★ | Crypto Toolkit*** <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-light-mode-only" alt="python" align=left width=24><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-dark-mode-only" alt="python" align=left width=24><br>
+# ***CryptKit | Crypto Toolkit*** <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-light-mode-only" alt="python" align=left width=24><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-dark-mode-only" alt="python" align=left width=24><br>
 <p align="center">
   <!--⁑<img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg">-->
   <img width="300" height="300" src="https://imgur.com/KHidht1.png">
@@ -26,9 +26,12 @@
   * <b> Convert your local currency to a crypto currency
   * <b> Convert a crypto currency to another crypto currency
     * **Over 150 currencies supported**
-* <b> Check crypto prices [¶](#check)
+* <b> Check crypto prices [¶](#check)</b>
   * Check prices on specified coins 
-  * Check prices on 200+ coins all at once </b>
+  * Check prices on 200+ coins all at once
+* <b> List decentralized exchanges(DEXes)</b>
+  * List ~100 top DEXes
+
 
 <hr>
 
@@ -45,7 +48,7 @@ chmod +x install.sh
 ```
 #### ° Or simply run it:
 ```python
-git clone --depth 1 https://github.com/Waxxx333/cryptkit
+git clone --depth 1 https://github.com/Waxxx333/cryptkit.git
 cd cryptkit
 chmod +x cryptkit
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
@@ -85,10 +88,10 @@ options:
 ```python
 cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --amount/-n [AMOUNT]
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
-└─⋗ cryptkit -c usd -i grc -n 10 
+└─⋗ cryptkit -c sol -i usd -n 3.9
 [■] Conversion is courtesy of: cryps.info
-[■] 10.0 USD to GRC (US Dollar to Gridcoin)  [■]
-[■] 10.0 U$D == 1,132.95960772 GRC [■]
+[■] 3.9 SOL to USD (Solana to US Dollar)  [■]
+[■] 3.9 SOL = 437.0368 U$D [■]
 ```
 
 <a name="check"></a>
@@ -104,10 +107,10 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 ###### · Check the price of another coin
 ```python
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
-└─⋗ cryptkit -p Dogecoin
-[■] DOGE Price: $0.1228
-[■] ₿TC Price: $37,875.6767
-[■] ΞTH Price: $2611 .::. Down: -3.83634
+└─⋗ cryptkit -p ravencoin
+[■] RVN Price: $0.05963
+[■] ₿TC Price: $$42,712.42
+[■] ΞTH Price: $3248 .::. Up: +1.17561%
 ```
 ###### · Check the price of over 200 coins all at once
 ```python
@@ -132,18 +135,14 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 
 
 ###### · For Windows and Termux you will have to manually install python-requests. You will need pip if you're on Windows or Termux to install requests. **I will be fixing this at some point. Right now the installer supports: openSUSE, Arch-based distros, Debian-based distros and Fedora
-###### · This script doesn't work for GTX 1050 cards as because you need >4GB VRAM to mine ETH.
 ###### · cryptkit now has tab completion if you install it via install.sh. You must be using zsh or bash and you also need to have bash-completion for bash or zsh-completions for zsh. Run the install script, close your shell, reopen a shell and type cryptkit -- (two hyphens) and press tab. Has an advanced usage menu for extra hep with its functions.
 
 <hr>
 
-<h1 align="center">Screenshots</h1>
+<h1 align="center">· Screenshots ·</h1>
 
 <p align="center">
-  <img src="https://i.imgur.com/Dt8Q56c.png" width="710" height="900">
-  <img src="https://i.imgur.com/SxDR9aQ.png" width="710" height="500">
-   <img src="https://i.imgur.com/CcbfYKE.png" width="710" height="500">
-  <img src="https://i.imgur.com/u1ARbmG.png" width="710" height="500">
+  <img src="https://i.imgur.com/u1ARbmG.png" width="710" height="500"> <!--Price listing -->
 </p>
 
 
@@ -156,33 +155,16 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 - [ ] Make installer work with Termux
 - [ ] Make STDOUT <kbd>prettier</kbd> on Termux
 - [ ] Maybe a side-by-side comparison function
-  - [x] Make the ***price check*** function have more currencies
-  - [x] <strike>***Add current ETH price function***</strike>
-  - [x] <strike>***Add Canadian Dollars***</strike>
-  - [x] <strike>***Make <kbd>install.sh</kbd>***</strike> 
-  - [x] <strike>***Create <kbd>requirements.txt</kbd>***</strike>
-  - [x] Work on bash and zsh completion
-  - [x] Add more currencies to the conversion function
+- [ ] Portfolio
 
 <details>
   <summary><kbd>Changes</kbd></summary>
   <ul>
-    <li><b> · Added function to convert ETH to USD/GBP and vice versa</li>
-    <li><b> · Added function to list ALL cards and all of their stats</li>
-    <li><b> · Shows <kbd>+/-</kbd> ETH</li>
-    <li> · Added price function</li>
-    <li> · Added CAD and EUR to the converter</li>
-    <li> · Updated script according to the source's source code change(Source: let me know if there's a problem with this project)</li>
-    <li> · Fixed conversion decimal problem</li>
-    <li> · Got rid of redundant "list all and stat" function</li>
-    <li> · Added zsh and bash tab completion</li>
-    <li> · Added over 150 currencies to the conversion function</li>
+    <li><b> ·..·</li>
     </ul>
 </details>  
 
 ##### All data is scraped.
-
-GPU stats are from [hashrate.no](https://hashrate.no)
 
 Price conversions are from [cryps.info](https://www.cryps.info/)
 
@@ -191,10 +173,11 @@ Price checks are from: [coinmarketcap](https://coinmarketcap.com), [hashrate.io]
 <hr>
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dogecoin.svg" width="75" height="75">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg" width="75" height="75">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/litecoin.svg" width="75" height="75">
   <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg" width="75" height="75">
   <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amd.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nvidia.svg" width="75" height="75">
 </p>
 <p align="center">
   <a href="https://twitter.com/waxxx333"><img src="https://img.shields.io/badge/-WaXxX-E34F26?style=plastic&logo=Windows%2095&logoColor=white"></a>
