@@ -6,18 +6,18 @@
 ![fff](https://img.shields.io/badge/Python3-Requests-7A297B?style=plastic&logo=Python)
 
 
+<h1 align="center">· <i><b>CryptKit | Crypto Toolkit</b></i> ·</h1>
 
-# ***CryptKit | Crypto Toolkit*** <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-light-mode-only" alt="python" align=left width=24><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg#gh-dark-mode-only" alt="python" align=left width=24><br>
 <p align="center">
   <!--⁑<img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg">-->
-  <img width="300" height="300" src="https://imgur.com/KHidht1.png">
+  <img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg">
 </p>
 
+<h2 align="center">· A multi-function crypto toolkit written in Python ·</h2>
 
 <hr>
 
-## Add description
-###### ⁂ ***All data is estimated***
+
 
 ##### · Functions: 
 * <b> Has installation script for Linux-based systems [¶](#install)
@@ -83,8 +83,10 @@ options:
 * GRC - Gridcoin
 * LTC - Litecoin
 * KOI or COYE - Coinye (inactive)
-* && many more 
-
+* && many more
+ 
+###### · Use the coin's abreviation for the convert function  
+  
 ```python
 cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --amount/-n [AMOUNT]
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
@@ -93,6 +95,7 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 [■] 3.9 SOL to USD (Solana to US Dollar)  [■]
 [■] 3.9 SOL = 437.0368 U$D [■]
 ```
+  
 
 <a name="check"></a>
 ## ● Check current crypto prices
@@ -102,7 +105,7 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
 └─⋗ cryptkit -p
 [■] ₿TC Price: $37,875.6767
-[■] ΞTH Price: $2611 .::. Down: -3.83634
+[■] ΞTH Price: $2611 .::. Down: -3.83634%
 ```
 ###### · Check the price of another coin
 ```python
@@ -131,14 +134,6 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 
 <hr>
 
-###### · Requirements: <kbd>python-requests</kbd> | but the installation script will attempt to install it in Linux based systems. 
-
-
-###### · For Windows and Termux you will have to manually install python-requests. You will need pip if you're on Windows or Termux to install requests. **I will be fixing this at some point. Right now the installer supports: openSUSE, Arch-based distros, Debian-based distros and Fedora
-###### · cryptkit now has tab completion if you install it via install.sh. You must be using zsh or bash and you also need to have bash-completion for bash or zsh-completions for zsh. Run the install script, close your shell, reopen a shell and type cryptkit -- (two hyphens) and press tab. Has an advanced usage menu for extra hep with its functions.
-
-<hr>
-
 <h1 align="center">· Screenshots ·</h1>
 
 <p align="center">
@@ -149,12 +144,12 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
 
 
 
-> To Do
+  > <kbd>To Do</kbd>
 - [ ] Add more distros' package managers to the installer
 - [ ] Make installer work in Winblows
 - [ ] Make installer work with Termux
 - [ ] Make STDOUT <kbd>prettier</kbd> on Termux
-- [ ] Maybe a side-by-side comparison function
+- [ ] A side-by-side comparison function
 - [ ] Portfolio
 
 <details>
@@ -164,11 +159,14 @@ cryptkit --convert/-c [USD/GBP/CAD/EUR/ETH] --into/-i [USD/GBP/CAD/EUR/ETH] --am
     </ul>
 </details>  
 
-##### All data is scraped.
+###### · Requirements: <kbd>python-requests</kbd> | but the installation script will attempt to install it in Linux based systems. 
 
-Price conversions are from [cryps.info](https://www.cryps.info/)
+###### · For Windows and Termux you will have to manually install python-requests. You will need pip if you're on Windows or Termux to install requests. I will be fixing this at some point. Right now the installer supports: openSUSE, Arch-based distros, Debian-based distros and Fedora
+###### · cryptkit now has tab completion if you install it via install.sh. You must be using zsh or bash and you also need to have bash-completion for bash or zsh-completions for zsh. Run the install script, close your shell, reopen a shell and type cryptkit -- (two hyphens) and press tab. Has an advanced usage menu for extra hep with its functions.
+  
+###### Price conversions are from [cryps.info](https://www.cryps.info/)
 
-Price checks are from: [coinmarketcap](https://coinmarketcap.com), [hashrate.io](https://www.hashrate.no/), and [walletinvestor](https://walletinvestor.com)
+###### Price checks are from: [coinmarketcap](https://coinmarketcap.com),  and  [walletinvestor](https://walletinvestor.com)
   
 <hr>
 
