@@ -111,7 +111,7 @@ options:
 [■] ₿TC Price: $37,875.6767
 [■] ΞTH Price: $2611 .::. Down: -3.83634%
 ```
-###### · Check the price of another coin
+###### · Check the price of a specified coin. Use full name. 
 ```python
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
 └─⋗ cryptkit -p ravencoin
