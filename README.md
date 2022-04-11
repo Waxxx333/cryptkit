@@ -27,9 +27,10 @@
 * <b> Check crypto prices [¶](#check)</b>
   * Check prices on specified coins 
   * Check prices on 200+ coins all at once
-* <b> List decentralized exchanges(DEXes)</b>
+* <b> List decentralized exchanges(DEXes) [¶](#list)</b>
   * List ~100 top DEXes
-
+* <b>Advanced usage</b> [¶](#usage)
+  * Helpful tips for running the script
 
 <hr>
 
@@ -84,9 +85,10 @@ options:
 * && many more
  -->
   
-  
+
+<a name="convert"></a>
 ## • Convert crypto currencies 
-  
+
 ###### · Use the coin's abreviation for the convert function  
   
 ```python
@@ -134,6 +136,7 @@ options:
 [■] GateToken    $6.76         GT 
 ```  
 
+<a name="list"></a> 
 ## • List some common crypto currencies
 ```python
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
@@ -151,6 +154,7 @@ options:
 [■] Dogecoin   doge
 ```
 
+<a name="usage"></a> 
 ## • Advanced usage
 #### ° More specific help using keywords
 ###### · Usage: <kbd>--usage/-u price/convert/today/all</kbd>
@@ -189,6 +193,7 @@ cryptkit -c matic -i eth -n 2000 # Convert 2000 MATIC into Ξthereu
 ```
 <hr>
 
+<a name="screenshots"></a> 
 <h1 align="center">· Screenshots ·</h1>
 <p align="center">
   <img src="https://i.imgur.com/u1ARbmG.png" width="710" height="500"> <!--Price listing -->
@@ -226,11 +231,13 @@ cryptkit -c matic -i eth -n 2000 # Convert 2000 MATIC into Ξthereu
 <hr>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dogecoin.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/litecoin.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg" width="75" height="75">
-  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg" width="75" height="75">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dogecoin.svg" width="55" height="55">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg" width="55" height="55">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/litecoin.svg" width="55" height="55">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ethereum.svg" width="55" height="55">
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/monero.svg" width="55" height="55">
+  <br>
+  <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg" width="55" height="55">
 </p>
 <p align="center">
   <a href="https://twitter.com/waxxx333"><img src="https://img.shields.io/badge/-WaXxX-E34F26?style=plastic&logo=Windows%2095&logoColor=white"></a>
