@@ -1,5 +1,5 @@
 #!/bin/bash
-script=("g2eth.py")
+script=("cryptkit.py")
 cleaned=("$(echo ${script} | cut -d'.' -f1)")
 RD=("\033[01;38;5;9m")
 PNK=("\033[01;38;5;13m")
@@ -30,9 +30,9 @@ install_script() {
         if [[ ${choice} == [yY] || ${choice} == [yY][eE][sS] ]]; then
             completion="True"
             if [[ ${shell} == 'zsh' ]]; then
-                completion_script=./completion/g2eth.zsh
+                completion_script=./completion/cryptkit.zsh
             elif [[ ${shell} == 'bash' ]]; then
-                completion_script=./completion/g2eth.bash
+                completion_script=./completion/cryptkit.bash
             fi
         fi
     else
@@ -42,14 +42,14 @@ install_script() {
 	echo -e "${DRK}Attempting to install ${GRN}${script} ${DRK}locally for ${GRN}${user}"
     if [[ -d $HOME/.local/bin/ ]]; then
         echo -e "${GRN}Copying ${PNK}${script} ${GRN}to ${PNK}$HOME/.local/bin/${cleaned}"
-        cp ${script} $HOME/.local/bin/g2eth
+        cp ${script} $HOME/.local/bin/cryptkit
         if [[ ${completion} == 'True' ]]; then
             if [[ ${shell} == 'zsh' ]]; then
                 echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to ${PNK}/usr/share/zsh/functions/Completion/Linux/"
-                sudo cp ${completion_script} /usr/share/zsh/functions/Completion/Linux/_g2eth
+                sudo cp ${completion_script} /usr/share/zsh/functions/Completion/Linux/_cryptkit
             elif [[ ${shell} == 'bash' ]]; then
                 echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to ${PNK}/usr/share/bash-completion/completions/"
-                sudo cp ${completion_script} /usr/share/bash-completion/completions/g2eth
+                sudo cp ${completion_script} /usr/share/bash-completion/completions/cryptkit
             fi
         fi
     else
@@ -57,14 +57,14 @@ install_script() {
         read -p ">>> " answer3
         if [[ ${answer3} == [yY] || ${answer3} == [yY][eE][sS] ]]; then
             chmod +x ${script}
-            sudo cp ${script} /bin/g2eth
+            sudo cp ${script} /bin/cryptkit
             if [[ ${completion} == 'True' ]]; then
                 if [[ ${shell} == 'zsh' ]]; then
                     echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to ${PNK}/usr/share/zsh/functions/Completion/Linux/"
-                    sudo cp ${completion_script} /usr/share/zsh/functions/Completion/Linux/_g2eth
+                    sudo cp ${completion_script} /usr/share/zsh/functions/Completion/Linux/_cryptkit
                 elif [[ ${shell} == 'bash' ]]; then
                     echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to ${PNK}/usr/share/bash-completion/completions/"
-                    sudo cp ${completion_script} /usr/share/bash-completion/completions/g2eth
+                    sudo cp ${completion_script} /usr/share/bash-completion/completions/cryptkit
                 fi
             fi
         elif [[ ${answer3} == [nN] || ${answer3} == [nN][oO] ]]; then

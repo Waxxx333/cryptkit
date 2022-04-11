@@ -13,11 +13,9 @@ DRK=("\033[01;38;5;242m")
 WHT=("\033[01;38;5;15m")
 ORN=("\033[01;38;5;202m")
 GRY=("\033[01;38;5;242m")
-NVD=("\033[1;42;97m")
-AMD=("\033[1;41;97m")
 RESET=("\033[0m")
 LOAD=("\033[1;49;32m")
-version=(1.4)
+version=(0.1)
 if (os.path.isdir('/data/data/com.termux')):
     OS = ('Termux')
 elif ('linux') in (sys.platform):
@@ -56,31 +54,35 @@ def echo(data):
         sleep(0.3)
         sys.stdout.write("\n")
 def icon(): #₿Ξ
-    icon = (f"""
-{GRN}┏━┓{DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓
+    if (OS) == ('Termux'):
+        icon = (f"""{GRN}┏━┓{DRK}┳┏ 
+{GRN}┃{YLW}₿ {DRK}┣┻┓
+{GRN}┗━┛{DRK}┇ ┛
+{GRN}Crypto Toolkit """)
+    else:
+        icon = (f"""{GRN}┏━┓{DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓
 {GRN}┃{YLW}₿ {DRK}┃┳┛┗┏┛┃━┛ ┃ ┃{YLW}Ð{DRK}┃┣┻┓┃ ┃ 
 {GRN}┗━┛{DRK}┇┗┛ ┇ ┇   ┇ ┛━┛┇ ┛┇ ┇""")
     sys.stdout.write(f"{icon}\n")
 def usage():
-    info = (f"""{PNK}# {DRK}Thanks to my sources{PNK}:
-{PRP}https://api.coindesk.com
-https://coinmarketcap.com
-https://walletinvestor.com
-https://www.cryps.info
-
-{PNK}#{DRK}Currenciess{PNK}: {GRN}158
-{PNK}#{DRK}Crypto{PNK}-{GRN}currencies and tokens{PNK}: {DRK}9950
-{PNK}#{DRK}Units{PNK}: {GRN}39580
-{PNK}#{DRK}Convert {PNK}$1500 {GRN}USD {DRK}into {GRN}Ξthereum
+    info = (f"""
+{PNK}# {DRK}Convert Function {PNK}#
+{PNK}# {DRK}Convert {PNK}$1500 {GRN}USD {DRK}into {GRN}Ξthereum
 {GRN}{script} {RD}-c {GRN}usd {RD}-i {GRN} eth {RD}-n {GRN}1500
-{PNK}#{DRK}Convert {PNK}3 {GRN}Ξthereum {DRK}into {GRN}₿TC
+{PNK}# {DRK}Convert {PNK}3 {GRN}Ξthereum {DRK}into {GRN}₿TC
 {GRN}{script} {RD}-c {GRN}eth {RD}-i {GRN}btc {RD}-n {GRN}3
-{PNK}#{DRK}Convert {PNK}40 {GRN}Ðogecoin {DRK}into {GRN}GBP
+{PNK}# {DRK}Convert {PNK}40 {GRN}Ðogecoin {DRK}into {GRN}GBP
 {GRN}{script} {RD}-c {GRN}doge {RD}-i {GRN}gbp {RD}-n {GRN}40
-{PNK}#{DRK}Convert {PNK}30 {GRN}Polygon{WHT}({PNK}MATIC{WHT}) {DRK}into {GRN}U$D
+{PNK}# {DRK}Convert {PNK}30 {GRN}Polygon{WHT}({PNK}MATIC{WHT}) {DRK}into {GRN}U$D
 {GRN}{script} {RD}-c {GRN}matic {RD}-i {GRN}usd {RD}-n {GRN}30
-{PNK}#{DRK}Convert {PNK}500 {GRN}Gwei {DRK}into {GRN}U$D
+{PNK}# {DRK}Convert {PNK}500 {GRN}Gwei {DRK}into {GRN}U$D
 {GRN}{script} {RD}-c {GRN}gwei {RD}-i {GRN}usd {RD}-n {GRN}30
+****************************
+{PNK}# {DRK}Price Function {PNK}#
+{PNK}# {DRK}Check price of just Ξthereum {PNK}& {DRK}₿itcoin
+{GRN}{script} {RD}-p {PNK}[{WHT}blank{PNK}]
+{PNK}# {DRK}Check price of Solana
+{GRN}{script} {RD}-p {GRN}solana
  """)
     info = info.replace('\r','.')
     sys.stdout.write(f"{info}\b")
@@ -91,6 +93,7 @@ def msg(name=None) -> None:
 {GRN}-n{WHT}, {GRN}--amount       {PNK}# {DRK}Amount to convert {PNK}[{RD}0.00000001 {PNK}- {RD}1000000{PNK}]
 {GRN}-u{WHT}, {GRN}--usage        {PNK}# {DRK}Show advanced help: {PNK}[{GRN}convert{WHT}, {GRN}today{WHT}, {GRN}price{WHT}, {GRN}all{PNK}] 
 {GRN}-p{WHT}, {GRN}--price        {PNK}# {DRK}Get crypto prices {PNK}[{GRN}all{WHT},{PNK}{{{GRN}specified coin{PNK}}}{WHT},{GRN}blank{PNK}] 
+{GRN}-l{WHT}, {GRN}--list         {PNK}# {DRK}List some common crypto currencies
 {GRN}-e{WHT}, {GRN}--exchanges    {PNK}# {DRK}List exchanges
 {GRN}-t{WHT}, {GRN}--today        {PNK}# {DRK}Get today's info on a coin
 {GRN}-h{WHT}, {GRN}--help         {PNK}# {DRK}Show standard help menu """)
@@ -130,17 +133,18 @@ class get():
         self.session.headers.update({'User-Agent':f"{Agent}"})
         parser = argparse.ArgumentParser(description=(f'{GRN}{script} | Crypto Toolkit'),add_help=(False))
         parser.add_argument('-h', '--help',action='help', default=argparse.SUPPRESS,help=(f'Show this help menu'))
-        parser.add_argument('-t', '--today' ,nargs='?',const='bitcoin',required=False, action=('store'), help=(f"Get today's details"))
+        parser.add_argument('-t', '--today' ,nargs='?',const='bitcoin',required=False, action=('store'), help=(f"Get today's details on a coin"))
         parser.add_argument('-u', '--usage' ,nargs='?',const='general',required=False, action=('store'), help=(f"Advanced Usage"))
         parser.add_argument('-v', '--version' ,required=False, action=('store_true'), help=(f"{script} Version"))
-        parser.add_argument('-l', '--list' ,required=False, action=('store_true'), help=(f"List ~100 decentralized exchanges"))
-        parser.add_argument('-e', '--exchanges' ,required=False, action=('store_true'), help=(f"List exchanges"))
+        parser.add_argument('-l', '--list' ,required=False, action=('store_true'), help=(f"List some common crypto currencies"))
+        parser.add_argument('-e', '--exchanges' ,required=False, action=('store_true'), help=(f"List ~100 decentralized exchanges"))
         parser.add_argument('-c', '--convert' ,required=False, action=('store'),type=(str.lower), help=(f"Currency to convert"))
         parser.add_argument('-i', '--into' ,required=False, action=('store'),type=(str.lower), help=(f"Currency to convert into"))
         parser.add_argument('-n', '--amount' ,required=False, action=('store'),type=(float), help=(f"Amount to convert"))
-        parser.add_argument('-p', '--price' ,nargs='?',const='bitcoin' ,required=False, action=('store'), help=(f"Show BTC and ETH price"))
+        parser.add_argument('-p', '--price' ,nargs='?',const='bitcoin' ,required=False, action=('store'), help=(f"Retrieve crypto prices"))
         args = (parser.parse_args())
         if args.today:
+            icon()
             loading(0.05)
             coin = (args.today)
             self.today(coin)
@@ -152,14 +156,16 @@ class get():
         else:
             pass
         if args.list:
+            icon()
             loading(0.05)
-            data = (f"{DRK}Stats brought to you by{PNK}: {BLUE}https{DRK}://{BLUE}coinmarketcap.com {DRK}[{GRN}■{DRK}]")
+            data = (f"{DRK}Some common crypto currencies {DRK}[{GRN}■{DRK}]")
             echo(data)
             self.list_cryptos()
             exit(0);
         else:
             pass
         if args.price:
+            icon()
             loading(0.05)
             currency = (args.price)
             self.get_current_price(currency)
@@ -201,6 +207,7 @@ class get():
                     exit(0);
                 else:
                     convert_to = (args.into)
+                icon()
                 loading(0.05)
                 self.convert(to_convert,amount,convert_to)
                 exit(0);
@@ -209,12 +216,28 @@ class get():
         if args.usage:
             if (args.usage) != ('general'):
                 query = (args.usage)
+                icon()
+                loading(0.05)
                 specific(query)
             else:
                 msg()
         else:
             pass
-
+    def list_cryptos(self):
+        with open('coins.txt') as coin_list:
+            coins = (coin_list.readlines())
+            coins = [x.strip() for x in coins]
+            title = ["Name", "Abreviation"]
+            data = ('{:1s}{:8s} {:14s}{:24s}'.format(DRK,title[0],RD,title[1]))
+            echo(data)
+            for coin in coins:
+                try:
+                    data = ("{:10s} {:20s}".format(coin.split()[0],coin.split()[1].lower()))
+                    echo(data)
+                except KeyboardInterrupt:
+                    data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
+                    echo(data)
+                    exit(0);
     def today(self,coin):
         if len(coin.split()) > 1:
             coin_raw = (coin.replace(' ','-'))
@@ -266,17 +289,13 @@ class get():
                 for link in links:
                     if ('https://medium.com') in link:
                         link = ('Null')
-                    #if ('https://medium.com') in link:
-                        #link.replace(link, '')
-                        #link.pop(links.index(link))
-                        #re.sub('medium.com', '', link)
                     data = ('{}{:13s} {}http{:23s}'.format(DRK,exchange,RD,link))
                     echo(data)
             except KeyboardInterrupt:
                 data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
                 echo(data)
                 exit(0);
-    def list_cryptos(self):
+    def all_crypto_prices(self):
         page = ('https://coinmarketcap.com/all/views/all/')
         retrieve = (self.session.get(page).text)
         names = (list(set(re.findall('"name":"(.*?)"',retrieve))))
@@ -291,8 +310,7 @@ class get():
                     retrieve2 = (self.session.get(price_page).text)
                     price =  (re.findall('class="priceValue "><span>(.*?)</span>',retrieve2)[0])
                     alt =  (re.findall('height="32" width="32" alt="(.*?)"',retrieve2)[0])
-                    #data = ('{:10s}{:12s} {:6s}{:8s} {:17s}{:20s}'.format(DRK,name,GRN,price,RD,alt))
-                    data = ('{:10s}{:12s} {:17s}{:20s}'.format(DRK,name,RD,alt))
+                    data = ('{:10s}{:12s} {:6s}{:8s} {:17s}{:20s}'.format(DRK,name,GRN,price,RD,alt))
                     echo(data)
                 except KeyboardInterrupt:
                     data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
@@ -363,17 +381,17 @@ class get():
             echo(data)
     def get_current_price(self, currency):
         btc_page = ('https://coinmarketcap.com/currencies/bitcoin/')
-        page = (f'https://www.hashrate.no/')
-        page2 = (f"https://walletinvestor.com/converter/ethereum/usd/1")
-        retrieve = (self.session.get(page).text)
+        eth_page = ('https://coinmarketcap.com/currencies/ethereum/')
+        page2 = ("https://walletinvestor.com/converter/ethereum/usd/1")
         get_btc = (self.session.get(btc_page).text)
+        get_eth = (self.session.get(eth_page).text)
         retrieve2 = (self.session.get(page2).text)
         try:
             btc_price = (re.findall('class="priceValue "><span>(.*?)</span>',get_btc)[0])
         except:
             btc_price = (f'N/A')
         try:
-            eth_price = (re.findall("ETH: <b>(.*?)</", retrieve)[0])
+            eth_price = (re.findall('class="priceValue "><span>(.*?)</span>',get_eth)[0])
         except:
             eth_price = ('N/A')
         try:
@@ -386,7 +404,7 @@ class get():
             if currency == ('all'):
                 data = (f"{DRK}Stats brought to you by{PNK}: {BLUE}https{DRK}://{BLUE}coinmarketcap.com {DRK}[{GRN}■{DRK}]")
                 echo(data)
-                self.list_cryptos()
+                self.all_crypto_prices()
                 exit(0);
             if len(currency.split()) > 1:
                currency = (currency.replace(' ', '-')) 
@@ -408,7 +426,7 @@ class get():
             data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
             echo(data)
             loading(0.01)
-            data = (f"{DRK}ΞTH Price{PNK}: {GRN}{eth_price} {PNK}.::. {DRK}Down{PNK}: -{RD}{down_clean}%\r")
+            data = (f"{DRK}ΞTH Price{PNK}: {GRN}{eth_price} {PNK}.::. {DRK}Down{PNK}: {RD}{down_clean}%\r")
             echo(data)
         else:
             data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
