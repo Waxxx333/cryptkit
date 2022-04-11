@@ -15,8 +15,8 @@ echo -e "${DRK}Getting ready to install ${GRN}${script}"
 echo -e "${DRK}Making ${GRN}${script} ${DRK}executable"
 chmod +x ${script}
 echo -e "${GRN}┏━┓${DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓"
-echo -e "${GRN}┃${YLW}₿ ${DRK}┃┳┛┗┏┛┃━┛ ┃ ┃${YLW}Ð${DRK}┃┣┻┓┃ ┃ "
-echo -e "${GRN}┗━┛${DRK}┇┗┛ ┇ ┇   ┇ ┛━┛┇ ┛┇ ┇"
+echo -e "${GRN}┃  ${DRK}┃┳┛┗┏┛┃━┛ ┃ ┃ ┃┣┻┓┃ ┃ "
+echo -e "${GRN}┗━┛${PRP}┇┗┛ ┇ ┇ ${YLW}₿${DRK} ┇ ┛━┛┇ ┛┇ ┇"
 if grep -qi "arch" /etc/os-release; then
     export DISTRO="Arch" 
 elif grep -qi "debian" /etc/os-release; then

@@ -26,7 +26,6 @@ script = (os.path.basename(sys.argv[0]))
 if ('.py') in script:
     script = (script.split('.')[0])
 counter = [0]
-currency_options = ['usd', 'gbp', 'cad', 'eur', 'eth']
 CHARS = ('/', '-', '\\', '|')
 Agent = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36')
 def cls():
@@ -53,6 +52,7 @@ def echo(data):
         sys.stdout.flush()
         sleep(0.3)
         sys.stdout.write("\n")
+        return()
 def icon(): #₿Ξ
     if (OS) == ('Termux'):
         icon = (f"""{GRN}┏━┓{DRK}┳┏ 
@@ -61,8 +61,8 @@ def icon(): #₿Ξ
 {GRN}Crypto Toolkit """)
     else:
         icon = (f"""{GRN}┏━┓{DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓
-{GRN}┃{YLW}₿ {DRK}┃┳┛┗┏┛┃━┛ ┃ ┃{YLW}Ð{DRK}┃┣┻┓┃ ┃ 
-{GRN}┗━┛{DRK}┇┗┛ ┇ ┇   ┇ ┛━┛┇ ┛┇ ┇""")
+{GRN}┃  {DRK}┃┳┛┗┏┛┃━┛ ┃ ┃ {DRK}┃┣┻┓┃ ┃ 
+{GRN}┗━┛{DRK}┇┗┛ ┇ ┇ {YLW}₿ {DRK}┇ ┛━┛┇ ┛┇ ┇""")
     sys.stdout.write(f"{icon}\n")
 def usage():
     info = (f"""
@@ -101,14 +101,15 @@ def msg(name=None) -> None:
     sys.stdout.write(f"{info}\b")
 def specific(query) -> None:
     if (query) == ('convert'):
-        info = (f"""{PNK}#{DRK} Conversion examples{PNK}:
+        info = (f"""{PNK}#{DRK} Conversion examples{PNK}:{WHT}({RD}Use abreviations{WHT})
 {GRN}{script} -c usd -i btc -n 125 {PNK}# {DRK}Convert $125 into ₿itcoin
 {GRN}{script} --convert sol --into usd --amount 9.5 {PNK}# {DRK}Convert 9.5 Solana into USD.
-{GRN}{script} -c matic -i eth -n 2000 {PNK}# {DRK}Convert 2000 MATIC into Ξthereum""")
+{GRN}{script} -c matic -i eth -n 2000 {PNK}# {DRK}Convert 2000 MATIC into Ξthereum
+{PNK}# {RD}*{DRK}Hint{PNK}: {DRK}run {WHT}({GRN}{script} {RD}--list{WHT}) {DRK}to get abreviations{RD}* """)
         info = info.replace('\r','.')
         sys.stdout.write(f"\n{info}\b")
     elif (query) == ('price'):
-        info = (f"""{PNK}# {DRK}Price examples{PNK}:{GRN}
+        info = (f"""{PNK}# {DRK}Price examples{PNK}:{WHT}({RD}Use full name{WHT}){GRN}
 {script} -p litecoin {PNK}# {DRK}Get the price of Litecoin{GRN}
 {script} -p 'ethereum classic' {PNK}# {DRK}Use quotes for two-word cryptos{GRN}
 {script} -p [blank] {PNK}#{DRK} Leave blank for Ξthereum and ₿itcoin{GRN}
@@ -116,9 +117,9 @@ def specific(query) -> None:
         info = info.replace('\r','.')
         sys.stdout.write(f"\n{info}\b")
     elif (query) == ('today'):
-        info = (f"""{PNK}#{DRK} Price examples{PNK}:{GRN}
+        info = (f"""{PNK}#{DRK} Price examples{PNK}:{WHT}({RD}Use full name{WHT}){GRN}
 {script} -t litecoin {PNK}# {DRK}Get today's info on Litecoin{GRN}
-{script} --today 'ethereum-classic' {PNK}# {DRK}Use quotes for two-word cryptos{GRN}
+{script} --today 'ethereum classic' {PNK}# {DRK}Use quotes for two-word cryptos{GRN}
 {script} -p [blank] {PNK}#{DRK} Leave blank for ₿itcoin and Ξthereum {GRN}""")
         info = info.replace('\r','.')
         sys.stdout.write(f"\n{info}\b")
@@ -234,6 +235,7 @@ class get():
                 try:
                     data = ("{:10s} {:20s}".format(coin.split()[0],coin.split()[1].lower()))
                     echo(data)
+                    sleep(0.01);
                 except KeyboardInterrupt:
                     data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
                     echo(data)
@@ -400,6 +402,8 @@ class get():
             btc_price = (f'N/A')
         try:
             eth_price = (re.findall('class="priceValue "><span>(.*?)</span>',get_eth)[0])
+        except (IndexError):
+            eth_price = (re.findall('class="priceValue smallerPrice"><span>(.*?)</span>',get_eth)[0])
         except:
             eth_price = ('N/A')
         try:
