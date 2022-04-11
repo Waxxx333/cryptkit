@@ -15,7 +15,7 @@ ORN=("\033[01;38;5;202m")
 GRY=("\033[01;38;5;242m")
 RESET=("\033[0m")
 LOAD=("\033[1;49;32m")
-version=(0.1)
+version=(1.0)
 if (os.path.isdir('/data/data/com.termux')):
     OS = ('Termux')
 elif ('linux') in (sys.platform):
@@ -248,23 +248,31 @@ class get():
             retrieve2 = (self.session.get(price_page).text)
             price_data =  (re.findall('Price Live Data(.*?)</p>',retrieve2)[0])
             try:
+                real_name =  (re.findall('<title>(.*?)price',retrieve2)[0])
+                title = ["Real Name", "Price"]
+            except:
+                real_name = (coin.title())
+                title = ["Query", "Price"]
+            try:
                 data2 =  (re.findall('">What Is(.*?)</p>',retrieve2)[0])
                 info = (f"What is {data2}")
             except:
                 info = (f"")
-            price =  (re.findall('class="priceValue "><span>(.*?)</span>',retrieve2)[0])
+            try:
+                price =  (re.findall('class="priceValue "><span>(.*?)</span>',retrieve2)[0])
+            except (IndexError):
+                price =  (re.findall('class="priceValue smallerPrice"><span>(.*?)</span>',retrieve2)[0])
             CLEANR = re.compile('<.*?>')
             cleantext = re.sub(CLEANR, '', price_data)
             cleantext2 = re.sub(CLEANR, '', info)
-            title = ["Name", "Price"]
             data = ('{:10s}{:12s} {:17s}{:20s}'.format(DRK,title[0],RD,title[1]))
-            #echo(data)
-            data = ('{:10s}{:12s} {:17s}{:20s}'.format(DRK,coin.title(),RD,price))
+            echo(data)
+            data = ('{:10s}{:12s} {:17s}{:20s}'.format(DRK,real_name,RD,price))
             echo(data)
             sys.stdout.write(f"{GRN}{cleantext}")
             sys.stdout.write(f"\n{GRN}{cleantext2}")
         except (IndexError):
-            data = (f"{RD}Error{PNK}: {DRK}Incorrect spelling or unsupported coin {DRK}[{RD}■{DRK}]")
+            data = (f"{RD}Error{PNK}: {DRK}Incorrect spelling, wrong name or unsupported coin {DRK}[{RD}■{DRK}]")
             echo(data)
             exit(0);
         except (KeyboardInterrupt):

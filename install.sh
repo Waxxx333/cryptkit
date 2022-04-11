@@ -7,12 +7,16 @@ PRP=("\033[01;38;5;55m")
 GRN=("\033[01;38;5;10m")
 DRK=("\033[01;38;5;242m")
 WHT=("\033[01;38;5;15m")
+YLW=("\033[01;38;5;220m")
 user=(${USER})
 Version=(0.4)
 shell=$(basename $SHELL)
 echo -e "${DRK}Getting ready to install ${GRN}${script}"
 echo -e "${DRK}Making ${GRN}${script} ${DRK}executable"
 chmod +x ${script}
+echo -e "${GRN}┏━┓${DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓"
+echo -e "${GRN}┃${YLW}₿ ${DRK}┃┳┛┗┏┛┃━┛ ┃ ┃${YLW}Ð${DRK}┃┣┻┓┃ ┃ "
+echo -e "${GRN}┗━┛${DRK}┇┗┛ ┇ ┇   ┇ ┛━┛┇ ┛┇ ┇"
 if grep -qi "arch" /etc/os-release; then
     export DISTRO="Arch" 
 elif grep -qi "debian" /etc/os-release; then
