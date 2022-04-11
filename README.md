@@ -31,6 +31,8 @@
   * List ~100 top DEXes
 * <b>Advanced usage</b> [¶](#usage)
   * Helpful tips for running the script
+* Get "today's" info on coins [¶](#today)
+
 
 <hr>
 
@@ -191,6 +193,29 @@ cryptkit -c usd -i btc -n 125 # Convert $125 into ₿itcoin
 cryptkit --convert sol --into usd --amount 9.5 # Convert 9.5 Solana into USD.
 cryptkit -c matic -i eth -n 2000 # Convert 2000 MATIC into Ξthereu 
 ```
+  
+<a name="today"></a> 
+## • Retrieve daily info on a coin
+#### ° Leave blank to check Bitcoin or provide a coin 
+###### · Usage: <kbd>--today/-t [blank]/[coin]</kbd>
+```python
+┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
+└─⋗  cryptkit -t
+[■] Real Name         Price               
+[■] Bitcoin           $40,492.60          
+The live Bitcoin price today is $40,492.60 USD with a 24-hour trading volume of $29,741,955,564 USD. We update our BTC to USD price in real-time. Bitcoin is down 5.96% in the last 24 hours. The current CoinMarketCap ranking is #1, with a live market cap of $769,719,787,930 USD. It has a circulating supply of 19,008,900 BTC coins and a max. supply of 21,000,000 BTC coins.
+What is  Bitcoin (BTC)?Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009.
+```
+  ###### · Supply a coin with the <kbd>--today/-t</kbd>
+```python
+┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
+└─⋗  cryptkit -t thorchain
+[■] Real Name         Price               
+[■] THORChain         $7.88               
+The live THORChain price today is $7.88 USD with a 24-hour trading volume of $155,737,269 USD. We update our RUNE to USD price in real-time. THORChain is down 15.90% in the last 24 hours. The current CoinMarketCap ranking is #46, with a live market cap of $2,606,719,852 USD. It has a circulating supply of 330,688,061 RUNE coins and a max. supply of 500,000,000 RUNE coins.
+What is  THORChain (RUNE)?THORCHain is a decentralized liquidity protocol that allows users to easily exchange cryptocurrency assets across a range of networks without losing full custody of their assets in the process.
+```
+  
 <hr>
 
 <a name="screenshots"></a> 
