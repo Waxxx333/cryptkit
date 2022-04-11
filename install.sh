@@ -14,9 +14,10 @@ shell=$(basename $SHELL)
 echo -e "${DRK}Getting ready to install ${GRN}${script}"
 echo -e "${DRK}Making ${GRN}${script} ${DRK}executable"
 chmod +x ${script}
-echo -e "${GRN}┏━┓${DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓"
-echo -e "${GRN}┃  ${DRK}┃┳┛┗┏┛┃━┛ ┃ ┃ ┃┣┻┓┃ ┃ "
-echo -e "${GRN}┗━┛${PRP}┇┗┛ ┇ ┇ ${YLW}₿${DRK} ┇ ┛━┛┇ ┛┇ ┇"
+echo -e "${GRN}┏━┓${DRK}┳━┓${DRK}┓ ┳${DRK}┳━┓${DRK}┏┓┓${DRK}┳┏ ${PNK}o${DRK}┏┓┓"
+echo -e "${GRN}┃  ${DRK}┃┳┛${DRK}┗┏┛${DRK}┃━┛ ${DRK}┃ ${DRK}┣┻┓${DRK}┃ ${DRK}┃ "
+echo -e "${GRN}┗━┛${RD}┇${DRK}┗┛ ${RD}┇ ${RD}┇ ${YLW}₿ ${RD}┇ ${RD}┇${DRK} ┛${RD}┇ ${RD}┇"
+
 if grep -qi "arch" /etc/os-release; then
     export DISTRO="Arch" 
 elif grep -qi "debian" /etc/os-release; then

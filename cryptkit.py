@@ -60,9 +60,9 @@ def icon(): #₿Ξ
 {GRN}┗━┛{DRK}┇ ┛
 {GRN}Crypto Toolkit """)
     else:
-        icon = (f"""{GRN}┏━┓{DRK}┳━┓┓ ┳┳━┓┏┓┓┏━┓┳┏ o┏┓┓
-{GRN}┃  {DRK}┃┳┛┗┏┛┃━┛ ┃ ┃ {DRK}┃┣┻┓┃ ┃ 
-{GRN}┗━┛{DRK}┇┗┛ ┇ ┇ {YLW}₿ {DRK}┇ ┛━┛┇ ┛┇ ┇""")
+        icon = (f"""{GRN}┏━┓{DRK}┳━┓{DRK}┓ ┳{DRK}┳━┓{DRK}┏┓┓{DRK}┳┏ {PNK}o{DRK}┏┓┓
+{GRN}┃  {DRK}┃┳┛{DRK}┗┏┛{DRK}┃━┛ {DRK}┃ {DRK}┣┻┓{DRK}┃ {DRK}┃ 
+{GRN}┗━┛{RD}┇{DRK}┗┛ {RD}┇ {RD}┇ {YLW}₿ {RD}┇ {RD}┇{DRK} ┛{RD}┇ {RD}┇ """)
     sys.stdout.write(f"{icon}\n")
 def usage():
     info = (f"""
@@ -334,7 +334,7 @@ class get():
             echo(data)
             exit(0);
     def convert(self,to_convert,amount,convert_to):
-        data = (f"{DRK}Conversion is courtesy of{PNK}: {PRP}cryps.info")
+        data = (f"{DRK}Conversion is from{PNK}: {PRP}cryps.info")
         echo(data)
         if ('gwei') in to_convert.casefold():
             currency1 = ('Gwei')
@@ -390,6 +390,8 @@ class get():
             data = (f"{GRY}Converting{PNK}: {GRN}{currency1} {GRY}into{PNK}: {GRN}{currency2} {PRP}|| {GRN}{amount} {PNK}{currency1} {WHT}= {GRN}{retrieved_amount} {PNK}{retrieved_currency} {DRK}[{GRN}■{DRK}]")
             echo(data)
     def get_current_price(self, currency):
+        data = (f"{DRK}Price data is from of{PNK}: {BLUE}coinmarketcap.com")
+        echo(data)
         btc_page = ('https://coinmarketcap.com/currencies/bitcoin/')
         eth_page = ('https://coinmarketcap.com/currencies/ethereum/')
         page2 = ("https://walletinvestor.com/converter/ethereum/usd/1")
@@ -407,6 +409,17 @@ class get():
         except:
             eth_price = ('N/A')
         try:
+            btc_status = (re.findall('Bitcoin is down(.*?)%',get_btc)[0])
+            btc_status = (btc_status.replace(' ',''))
+            UP = False
+        except (IndexError):
+            btc_status = (re.findall('Bitcoin is up(.*?)%',get_btc)[0])
+            btc_status = (btc_status.replace(' ',''))
+            UP = True
+        except:
+            UP = ('')
+            btc_status = ('')
+        try:
             down = (re.findall('glyphicon-menu-down"></i> (.*?)</',retrieve2)[0])
             down_clean = (down.replace(" ", ""))
         except:
@@ -423,10 +436,40 @@ class get():
             try:
                 cpage = (f"https://coinmarketcap.com/currencies/{currency.lower()}/")
                 retrievec = (self.session.get(cpage).text)
-                ccurrency =  (re.findall('class="priceValue "><span>(.*?)</span>',retrievec)[0])
-                alt =  (re.findall('height="32" width="32" alt="(.*?)"',retrievec)[0])
-                data = (f"{DRK}{alt} Price{PNK}: {GRN}{ccurrency}")
-                echo(data)
+                try:
+                    alt =  (re.findall('height="32" width="32" alt="(.*?)"',retrievec)[0])
+                except (IndexError):
+                    alt = ('')
+                try:
+                    real_name = (re.findall('<title>(.*?)price',retrievec)[0])
+                    real_name = (real_name.rstrip())
+                except (IndexError):
+                    real_name = (currency.title())
+                try:
+                    ccurrency = (re.findall('class="priceValue "><span>(.*?)</span>',retrievec)[0])
+                except (IndexError):
+                    ccurrency =  (re.findall('class="priceValue smallerPrice"><span>(.*?)</span>',retrievec)[0])
+                except:
+                    ccurency = ('')
+                try:
+                    coin_status = (re.findall(f"{real_name} is up(.*?)%",retrievec)[0])
+                    coin_status_up = (True)
+                except (IndexError):
+                    coin_status = (re.findall(f"{real_name} is down(.*?)%",retrievec)[0])
+                    coin_status_up = (False)
+                except:
+                    pass
+                if (coin_status_up) == (True):
+                    coin_status = (coin_status.replace(' ',''))
+                    data = (f"{DRK}{real_name}{WHT}({GRN}{alt}{WHT}) {DRK}Price{PNK}: {GRN}{ccurrency} {PNK}.::. {DRK}Up{PNK}: {GRN}+{coin_status}%\r")
+                    echo(data)
+                elif (coin_status_up) == (False):
+                    coin_status = (coin_status.replace(' ',''))
+                    data = (f"{DRK}{real_name}{WHT}({GRN}{alt}{WHT}) {DRK}Price{PNK}: {GRN}{ccurrency} {PNK}.::. {DRK}Down{PNK}: {RD}-{coin_status}%\r")
+                    echo(data)
+                else:
+                    data = (f"{DRK}{real_name}{WHT}({GRN}{alt}{WHT}) {DRK}Price{PNK}: {GRN}{ccurrency}")
+                    echo(data)
             except:
                 data = (f"{RD}Error{PNK}: {DRK}Check your spelling and try again.{DRK}[{RD}■{DRK}]")
                 echo(data)
@@ -435,13 +478,25 @@ class get():
                 data = (f"{RD}If the name is two words, use quotes {DRK}[{GRN}■{DRK}]")
                 echo(data)
         if ('-') in down:
-            data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
+            if (UP) == (True):
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price} {PNK}.::. {DRK}Up{PNK}: {GRN}+{btc_status}%\r")
+            elif (UP) == (False):
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price} {PNK}.::. {DRK}Down{PNK}: {RD}-{btc_status}%\r")
+            else:
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
             echo(data)
             loading(0.01)
             data = (f"{DRK}ΞTH Price{PNK}: {GRN}{eth_price} {PNK}.::. {DRK}Down{PNK}: {RD}{down_clean}%\r")
             echo(data)
         else:
-            data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
+            if (UP) == (True):
+                btc_status = (btc_status.replace(' ',''))
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price} {PNK}.::. {DRK}Up{PNK}: {GRN}+{btc_status}%\r")
+            elif (UP) == (False):
+                btc_status = (btc_status.replace(' ',''))
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price} {PNK}.::. {DRK}Down{PNK}: {RD}-{btc_status}%\r")
+            else:
+                data = (f"{DRK}₿TC Price{PNK}: {GRN}${GRN}{btc_price}")
             echo(data)
             loading(0.01)
             data = (f"{DRK}ΞTH Price{PNK}: {GRN}{eth_price} {PNK}.::. {DRK}Up{PNK}: {GRN}+{down_clean}%\r")
