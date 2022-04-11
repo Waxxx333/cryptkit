@@ -411,11 +411,11 @@ class get():
         try:
             btc_status = (re.findall('Bitcoin is down(.*?)%',get_btc)[0])
             btc_status = (btc_status.replace(' ',''))
-            UP = False
+            UP = (False)
         except (IndexError):
             btc_status = (re.findall('Bitcoin is up(.*?)%',get_btc)[0])
             btc_status = (btc_status.replace(' ',''))
-            UP = True
+            UP = (True)
         except:
             UP = ('')
             btc_status = ('')
@@ -425,7 +425,7 @@ class get():
         except:
             down = (re.findall('glyphicon-menu-up"></i> (.*?)</',retrieve2)[0])
             down_clean = (down.replace(" ", ""))
-        if currency != 'bitcoin':
+        if currency != ('bitcoin'):
             if currency == ('all'):
                 data = (f"{DRK}Stats brought to you by{PNK}: {BLUE}https{DRK}://{BLUE}coinmarketcap.com {DRK}[{GRN}■{DRK}]")
                 echo(data)
