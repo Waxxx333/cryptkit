@@ -198,6 +198,7 @@ cryptkit -c matic -i eth -n 2000 # Convert 2000 MATIC into Ξthereu
 <p align="center">
   <img src="https://i.imgur.com/u1ARbmG.png" width="710" height="500"> <!--Price listing -->
   <img src="https://github.com/Waxxx333/cryptkit/blob/main/assets/conversion.png" width="710" height="500">
+   <img src="https://github.com/Waxxx333/cryptkit/blob/main/assets/price.png" width="710" height="500">
   <img src="https://github.com/Waxxx333/cryptkit/blob/main/assets/exchanges.png" width="710" height="500">
   <img src="https://github.com/Waxxx333/cryptkit/blob/main/assets/list_prices.png" width="710" height="500">
   <img src="https://github.com/Waxxx333/cryptkit/blob/main/assets/today.png" width="710" height="500">
