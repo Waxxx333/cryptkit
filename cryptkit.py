@@ -15,7 +15,7 @@ ORN=("\033[01;38;5;202m")
 GRY=("\033[01;38;5;242m")
 RESET=("\033[0m")
 LOAD=("\033[1;49;32m")
-version=(1.0)
+version=(1.1)
 if (os.path.isdir('/data/data/com.termux')):
     OS = ('Termux')
 elif ('linux') in (sys.platform):
@@ -225,21 +225,22 @@ class get():
         else:
             pass
     def list_cryptos(self):
-        with open('coins.txt') as coin_list:
-            coins = (coin_list.readlines())
-            coins = [x.strip() for x in coins]
-            title = ["Name", "Abreviation"]
-            data = ('{:1s}{:8s} {:14s}{:24s}'.format(DRK,title[0],RD,title[1]))
-            echo(data)
-            for coin in coins:
-                try:
-                    data = ("{:10s} {:20s}".format(coin.split()[0],coin.split()[1].lower()))
-                    echo(data)
-                    sleep(0.01);
-                except KeyboardInterrupt:
-                    data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
-                    echo(data)
-                    exit(0);
+        page = ('https://raw.githubusercontent.com/Waxxx333/cryptkit/main/coins.txt')
+        coin_list = (self.session.get(page).text)
+        coins = (re.findall('([0-9A-Za-z ]+)',coin_list))
+        coins = [x.strip() for x in coins]
+        title = ["Name", "Abreviation"]
+        data = ('{:1s}{:8s} {:14s}{:24s}'.format(DRK,title[0],RD,title[1]))
+        echo(data)
+        for coin in coins:
+            try:
+                data = ("{:10s} {:20s}".format(coin.split()[0],coin.split()[1].lower()))
+                echo(data)
+                sleep(0.01);
+            except KeyboardInterrupt:
+                data = (f"{RD}Error{PNK}: {DRK}Keyboard Interruption {DRK}[{RD}■{DRK}]")
+                echo(data)
+                exit(0);
     def today(self,coin):
         if len(coin.split()) > 1:
             coin_raw = (coin.replace(' ','-'))
