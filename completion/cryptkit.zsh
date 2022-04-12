@@ -8,5 +8,5 @@ _arguments -s \
     '(-i --into)'{-i,--into}'[Converting crypto currency into(abreviate: usd/btc/etc)]' \
     '(-n --amount)'{-n,--amount}'[Amount to convert]' \
     '(-h --help)'{-h,--help}'[Display this help and exit]' \
-    '(-e --exchanges)'{-h,--help}'[List ~100 decentralized exchanges(DEX)]' \
+    '(-e --exchanges)'{-e,--exchanges}'[List ~100 decentralized exchanges(DEX)]' \
     '(-v --version)'{-v,--version}'[Output version information and exit]'
