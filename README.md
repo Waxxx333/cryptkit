@@ -206,7 +206,7 @@ cryptkit -c matic -i eth -n 2000 # Convert 2000 MATIC into Ξthereu
 The live Bitcoin price today is $40,492.60 USD with a 24-hour trading volume of $29,741,955,564 USD. We update our BTC to USD price in real-time. Bitcoin is down 5.96% in the last 24 hours. The current CoinMarketCap ranking is #1, with a live market cap of $769,719,787,930 USD. It has a circulating supply of 19,008,900 BTC coins and a max. supply of 21,000,000 BTC coins.
 What is  Bitcoin (BTC)?Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009.
 ```
-  ###### · Supply a coin with the <kbd>--today/-t</kbd>
+  ###### · Supply a coin with the <kbd>--today/-t thorchain</kbd>
 ```python
 ┌──[яoot@ᴡɪɴᴅᴏᴡꜱ95]-<cryptkit>
 └─⋗  cryptkit -t thorchain
