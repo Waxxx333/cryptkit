@@ -26,6 +26,8 @@ elif grep -qi 'fedora' /etc/os-release; then
     export DISTRO="Fedora" 
 elif grep -qi "opensuse" /etc/os-release; then
     export DISTRO="openSUSE" 
+elif [[ -d /data/data/com.termux ]]; then
+    export DISTRO='Termux'
 fi
 install_script() {
     if [[ ${shell} == 'zsh' && -d /usr/share/zsh/functions/Completion/Linux/ ]] || [[ ${shell} == 'bash' && -d /usr/share/bash-completion/completions/ ]]; then
@@ -100,6 +102,16 @@ get_requests() {
     elif [[ ${DISTRO} == "Fedora" ]]; then
         echo -e "${GRN}Fedora${PNK}-${GRN}based ${DRK}distro detected ${PNK}:: ${DRK}Installing ${GRN}python3${PNK}-${GRN}pip"
         sudo dnf install  python3-requests
+        command python3 -c "import requests;" &>/dev/null
+        if [[ $? == 0 ]]; then
+            install_script
+        else
+            echo -e "${RD}You're going to have to manually install requests."
+        fi
+    elif [[ ${DISTRO} == "Termux" ]]; then
+        echo -e "${GRN}Termux${PNK}-${GRN}based ${DRK}OS detected ${PNK}:: ${DRK}Installing ${GRN}python3${PNK}-${GRN}pip"
+        pkg install python3
+        pip install requests
         command python3 -c "import requests;" &>/dev/null
         if [[ $? == 0 ]]; then
             install_script
