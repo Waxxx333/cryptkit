@@ -19,7 +19,7 @@
 
 ##### · Functions: 
 * <b> Has installation script for Linux-based systems [¶](#install)
-* <b> Convert crypto [¶](#convert)
+* <b> Get exchange/conversion rates [¶](#convert)
   * <b> Convert a crypto currency to your local currency 
   * <b> Convert your local currency to a crypto currency
   * <b> Convert a crypto currency to another crypto currency
