@@ -18,19 +18,20 @@ echo -e "${GRN}┏━┓${DRK}┳━┓${DRK}┓ ┳${DRK}┳━┓${DRK}┏┓�
 echo -e "${GRN}┃  ${DRK}┃┳┛${DRK}┗┏┛${DRK}┃━┛ ${DRK}┃ ${DRK}┣┻┓${DRK}┃ ${DRK}┃ "
 echo -e "${GRN}┗━┛${RD}┇${DRK}┗┛ ${RD}┇ ${RD}┇ ${YLW}₿ ${RD}┇ ${RD}┇${DRK} ┛${RD}┇ ${RD}┇"
 
-if grep -qi "arch" /etc/os-release; then
+if grep -qi "arch" /etc/os-release 2>/dev/null; then
     export DISTRO="Arch" 
-elif grep -qi "debian" /etc/os-release; then
+elif grep -qi "debian" /etc/os-release 2>/dev/null; then
     export DISTRO="Debian" 
-elif grep -qi 'fedora' /etc/os-release; then
+elif grep -qi 'fedora' /etc/os-release 2>/dev/null; then
     export DISTRO="Fedora" 
-elif grep -qi "opensuse" /etc/os-release; then
+elif grep -qi "opensuse" /etc/os-release 2>/dev/null; then
     export DISTRO="openSUSE" 
 elif [[ -d /data/data/com.termux ]]; then
     export DISTRO='Termux'
 fi
+
 install_script() {
-    if [[ ${shell} == 'zsh' && -d /usr/share/zsh/functions/Completion/Linux/ ]] || [[ ${shell} == 'bash' && -d /usr/share/bash-completion/completions/ ]]; then
+    if [[ ${shell} == 'zsh' && -d /usr/share/zsh/functions/Completion/Linux/ ]] || [[ ${shell} == 'bash' && -d /usr/share/bash-completion/completions/ ]] || [[ ${shell} == 'bash' && -d /data/data/com.termux/files/usr/share/bash-completion ]]; then
     echo -e "${DRK}[${GRN}+${DRK}] ${GRN}Shell for ${PNK}${user} ${GRN}detected${PNK}:: ${GRN}${shell} ${DRK}[${GRN}+${DRK}]"
     echo -e "${GRN}Would you like to install a tab completion script for ${PNK}${cleaned} ?"
     read -p "[y/n]::$ " choice
@@ -58,6 +59,13 @@ install_script() {
                 echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to ${PNK}/usr/share/bash-completion/completions/"
                 sudo cp ${completion_script} /usr/share/bash-completion/completions/cryptkit
             fi
+        fi
+    elif [[ -d /data/data/com.termux/files/usr/bin && $(whoami) != 'root' ]]; then
+        echo -e "${DRK}Termux and Termux user detected. ${GRN}Installing ${script} to ${PNK}/data/data/com.termux/files/usr/bin"
+        cp ${script} /data/data/com.termux/files/usr/bin
+        if [[ ${completion} == 'True' ]]; then
+            echo -e "${GRN}Copying ${PNK}${completion_script} ${GRN}to\n ${PNK}/data/data/com.termux/files/usr/share/bash-completion/completions/"
+            cp ${completion_script} /data/data/com.termux/files/usr/share/bash-completion/completions/cryptkit
         fi
     else
         echo -e "Copy file to /bin ? This will require your password."
