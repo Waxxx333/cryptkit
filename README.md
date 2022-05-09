@@ -9,8 +9,13 @@
 <h1 align="center">• <b>CryptKit | Crypto Toolkit</b> •</h1>
 
 <p align="center">
-  <!--⁑<img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg">-->
-  <img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg">
+  <!--⁑<img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg">
+  <img width="300" height="300" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitcoin.svg">-->
+  <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/btc.png">
+  <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/eth.png">
+  <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/matic.png">
+  <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/dot.png">
+  <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/ltc.png">
 </p>
 
 <h2 align="center">· A multi-function crypto toolkit written in Python ·</h2>
@@ -19,10 +24,10 @@
 
 ##### · Functions: 
 * <b> Has installation script for Linux-based systems [¶](#install)
-* <b> Get exchange/conversion rates [¶](#convert)
-  * <b> Convert a crypto currency to your local currency 
-  * <b> Convert your local currency to a crypto currency
-  * <b> Convert a crypto currency to another crypto currency
+* <b> Get conversion/exchange rates [¶](#convert)
+  * <b> Conversion rate for crypto currency to your local fiat 
+  * <b> Conversion rate for local fiat to crypto currency
+  * <b> Conversion rate for crypto to crypto swap
     * **Over 150 currencies supported**
 * <b> Check crypto prices [¶](#check)</b>
   * Check prices on specified coins 
@@ -89,7 +94,7 @@ options:
   
 
 <a name="convert"></a>
-## • Convert crypto currencies 
+## • Conversion/Exchange rate function 
 
 ###### · Use the coin's abreviation for the convert function  
   
