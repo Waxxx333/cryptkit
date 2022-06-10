@@ -18,6 +18,8 @@
   <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/ltc.png">
 </p>
 
+![](https://ripgvc.herokuapp.com/?username=waxxx333&color=ff6c1f)
+
 <h2 align="center">· A multi-function crypto toolkit written in Python ·</h2>
 
 <hr>
