@@ -18,7 +18,6 @@
   <img width="100" height="100" src="https://github.com/Waxxx333/cryptkit/blob/main/assets/ltc.png">
 </p>
 
-![](https://ripgvc.herokuapp.com/?username=waxxx333&color=ff6c1f)
 
 <h2 align="center">· A multi-function crypto toolkit written in Python ·</h2>
 
@@ -275,5 +274,7 @@ What is  THORChain (RUNE)?THORCHain is a decentralized liquidity protocol that a
 <p align="center">
   <a href="https://twitter.com/waxxx333"><img src="https://img.shields.io/badge/-WaXxX-E34F26?style=plastic&logo=Windows%2095&logoColor=white"></a>
 </p>
-
+  
+ <!--<img align="left" src="https://ripgvc.herokuapp.com/?username=waxxx333&color=ff6c1f&round"><br>-->
+  
 <hr>
